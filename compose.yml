@@ -1,0 +1,24 @@
+---
+version: "3.4"
+
+services:
+  zabbix:
+    build:
+      context: .
+      args:
+        ZABBIX_VERSION: 7.0
+        ZABBIX_REVISION: 2
+    cap_add:
+      - SYS_NICE  # required for MySQL
+    ports:
+      - "127.0.0.1:8080:8080"  # web frontend
+      - "10051:10051"  # connection from Zabbix agents
+    secrets:
+      - mysqlrootpw
+      - mysqlzabbixpw
+
+secrets:
+  mysqlrootpw:
+    file: .mysql-root-pw
+  mysqlzabbixpw:
+    file: .mysql-zabbix-pw

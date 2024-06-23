@@ -1,0 +1,36 @@
+{
+    "jsonrpc": "2.0",
+    "method": "action.create",
+    "params": {
+        "name": "Register Linux",
+        "eventsource": "2",
+        "filter": {
+            "evaltype": "2",
+            "conditions": [
+                {
+                    "conditiontype": "24",
+                    "operator": "2",
+                    "value": "Linux"
+                }
+            ]
+        },
+        "operations": [
+            {
+                "operationtype": "4",
+                "opgroup": [
+                    {
+                        "groupid": "2"
+                    }
+                ]
+            },
+            {
+                "operationtype": "6",
+                "optemplate": [
+                    {
+                        "templateid": "10001"
+                    }
+                ]
+            }
+        ]
+    }
+}

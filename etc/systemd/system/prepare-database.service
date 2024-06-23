@@ -1,0 +1,12 @@
+[Unit]
+Description=prepare-database
+Requires=mysqld.service
+After=mysqld.service
+Before=prepare-zabbix.service
+
+[Service]
+ExecStart=/usr/local/bin/prepare-database.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=prepare-zabbix
+Requires=prepare-database.service
+After=prepare-database.service
+Before=zabbix-agent2.service zabbix-server.service
+
+[Service]
+ExecStart=/usr/local/bin/prepare-zabbix.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

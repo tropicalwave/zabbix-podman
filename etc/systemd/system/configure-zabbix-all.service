@@ -1,0 +1,11 @@
+[Unit]
+Description=configure-zabbix-all
+Requires=zabbix-server.service
+After=nginx.service zabbix-server.service
+
+[Service]
+ExecStart=/usr/local/bin/configure-zabbix-all.py
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

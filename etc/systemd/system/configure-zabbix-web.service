@@ -1,0 +1,12 @@
+[Unit]
+Description=configure-zabbix-web
+Requires=zabbix-server.service
+After=zabbix-server.service
+Before=nginx.service
+
+[Service]
+ExecStart=/usr/local/bin/configure-zabbix-web.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
