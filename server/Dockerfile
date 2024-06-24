@@ -1,3 +1,4 @@
+# checkov:skip=CKV2_DOCKER_1:sudo enabled for Zabbix actions
 # checkov:skip=CKV_DOCKER_2:healthcheck not enabled
 # checkov:skip=CKV_DOCKER_3:no user necessary
 FROM rockylinux/rockylinux:9
@@ -7,28 +8,30 @@ RUN rpm -Uvh "https://repo.zabbix.com/zabbix/$ZABBIX_VERSION/rocky/9/x86_64/zabb
     && dnf install -y glibc-langpack-en \
         python3-requests \
         mysql \
-	mysql-server \
-	zabbix-server-mysql \
-	zabbix-web-mysql \
-	zabbix-nginx-conf \
-	zabbix-sql-scripts \
-	zabbix-selinux-policy \
-	zabbix-agent2 \
-	zabbix-agent2-plugin-* \
+        mysql-server \
+        sudo \
+       	zabbix-server-mysql \
+       	zabbix-web-mysql \
+       	zabbix-nginx-conf \
+       	zabbix-sql-scripts \
+       	zabbix-selinux-policy \
+       	zabbix-agent2 \
+       	zabbix-agent2-plugin-* \
     && dnf clean all
 
 COPY etc/systemd/system/* /etc/systemd/system/
 COPY usr/local/bin/* /usr/local/bin/
 COPY usr/local/etc/zabbix/* /usr/local/etc/zabbix/
+COPY etc/sudoers.d/* /etc/sudoers.d/
 
 RUN systemctl enable mysqld \
         prepare-database \
-	prepare-zabbix \
-	configure-zabbix-all \
-	configure-zabbix-web \
-	nginx \
-	php-fpm \
-	zabbix-agent2 \
+       	prepare-zabbix \
+       	configure-zabbix-all \
+       	configure-zabbix-web \
+       	nginx \
+       	php-fpm \
+       	zabbix-agent2 \
         zabbix-server
 
 CMD ["/usr/sbin/init"]

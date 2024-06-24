@@ -1,0 +1,38 @@
+{
+    "jsonrpc": "2.0",
+    "method": "action.create",
+    "params": {
+        "name": "Restart nginx",
+        "eventsource": "0",
+        "esc_period": "120",
+        "filter": {
+            "evaltype": "0",
+            "conditions": [
+                {
+                    "conditiontype": "3",
+                    "operator": "2",
+                    "value": "nginx.service: Service is not running"
+                },
+                {
+                    "conditiontype": "16",
+                    "operator": "11"
+                }
+            ]
+        },
+        "operations": [
+            {
+                "operationtype": "1",
+                "opcommand": {
+                    "scriptid": "4"
+                },
+                "opcommand_hst": [
+                    {
+                        "hostid": "0"
+                    }
+                ]
+            }
+        ],
+        "recovery_operations": [],
+        "update_operations": []
+    }
+}

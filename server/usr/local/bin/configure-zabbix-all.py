@@ -47,6 +47,7 @@ for f in json_files:
     rid += 1
 
     r = s.post(API_URL, headers={"Content-Type": "application/json-rpc"}, json=j)
+    r.raise_for_status()
 
 with open(state_file, "w", encoding="utf-8") as fo:
     fo.write("done")

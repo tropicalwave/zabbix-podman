@@ -1,0 +1,11 @@
+[Unit]
+Description=prepare-zabbix-agent
+Requires=zabbix-agent2.service
+Before=zabbix-agent2.service
+
+[Service]
+ExecStart=/usr/local/bin/prepare-zabbix-agent.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

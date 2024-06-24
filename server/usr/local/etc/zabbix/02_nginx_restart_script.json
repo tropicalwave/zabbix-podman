@@ -1,0 +1,13 @@
+{
+    "jsonrpc": "2.0",
+    "method": "script.create",
+    "params": {
+        "name": "Restart nginx",
+        "command": "sudo systemctl restart nginx",
+        "host_access": "2",
+        "type": "0",
+        "execute_on": "0",
+        "timeout": "30s",
+        "scope": "1"
+    }
+}
