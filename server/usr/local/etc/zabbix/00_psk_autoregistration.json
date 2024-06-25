@@ -1,0 +1,9 @@
+{
+    "jsonrpc": "2.0",
+    "method": "autoregistration.update",
+    "params": {
+        "tls_accept": "2",
+        "tls_psk": "",
+        "tls_psk_identity": "MyPSK"
+    }
+}

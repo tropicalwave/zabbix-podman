@@ -46,6 +46,10 @@ for f in json_files:
     j["id"] = rid
     rid += 1
 
+    if "params" in j.keys() and "tls_psk" in j["params"].keys():
+        with open("/run/secrets/zabbixpsk", encoding="utf-8") as fpsk:
+            j["params"]["tls_psk"] = fpsk.read().strip()
+
     r = s.post(API_URL, headers={"Content-Type": "application/json-rpc"}, json=j)
     r.raise_for_status()
 
