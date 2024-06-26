@@ -15,6 +15,7 @@ COPY etc/sudoers.d/* /etc/sudoers.d/
 COPY etc/systemd/system/* /etc/systemd/system/
 COPY usr/local/bin/* /usr/local/bin/
 
-RUN systemctl enable prepare-zabbix-agent zabbix-agent2
+RUN systemctl enable prepare-zabbix-agent zabbix-agent2 \
+    && systemctl mask console-getty getty@tty1
 
 CMD ["/usr/sbin/init"]

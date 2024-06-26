@@ -5,6 +5,7 @@ After=nginx.service zabbix-server.service
 
 [Service]
 ExecStart=/usr/local/bin/configure-zabbix-all.py
+RemainAfterExit=yes
 Type=oneshot
 
 [Install]

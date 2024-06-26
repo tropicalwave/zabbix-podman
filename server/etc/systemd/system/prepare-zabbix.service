@@ -6,6 +6,7 @@ Before=zabbix-agent2.service zabbix-server.service
 
 [Service]
 ExecStart=/usr/local/bin/prepare-zabbix.sh
+RemainAfterExit=yes
 Type=oneshot
 
 [Install]

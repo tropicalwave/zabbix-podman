@@ -6,6 +6,7 @@ Before=nginx.service
 
 [Service]
 ExecStart=/usr/local/bin/configure-zabbix-web.sh
+RemainAfterExit=yes
 Type=oneshot
 
 [Install]

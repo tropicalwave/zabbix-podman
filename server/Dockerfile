@@ -32,6 +32,7 @@ RUN systemctl enable mysqld \
        	nginx \
        	php-fpm \
        	zabbix-agent2 \
-        zabbix-server
+        zabbix-server \
+    && systemctl mask console-getty getty@tty1
 
 CMD ["/usr/sbin/init"]

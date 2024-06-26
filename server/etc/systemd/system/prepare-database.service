@@ -6,6 +6,7 @@ Before=prepare-zabbix.service
 
 [Service]
 ExecStart=/usr/local/bin/prepare-database.sh
+RemainAfterExit=yes
 Type=oneshot
 
 [Install]

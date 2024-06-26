@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This deployment sets up a Zabbix deployment (server + three agents) with
+This deployment sets up a Zabbix environment (server + three agents) with
 the following characteristics:
 
 * encrypted communication between server and agents
